@@ -25,17 +25,18 @@ def main():
     print(f"   Total epoch rewards: ${pd.to_numeric(df_pools['projected_rewards'], errors='coerce').sum():,.0f}")
     print(f"   Average pool TVL: ${pd.to_numeric(df_pools['tvl_usd'], errors='coerce').mean()/1e6:.2f}M")
     
-    # Configuration - FIXED
+    # Configuration - CHANGE SPECS HERE
     USER_VOTING_POWER = 1_000_000  # 1M votes
     
     total_votes_numeric = float(pd.to_numeric(df_pools['current_votes'], errors='coerce').sum())
+    # Change any specs inside configuration HERE
     config = {
         'max_pools': 20,
         'max_pool_allocation_pct': 0.40,
         'min_pool_allocation': 10000,
         'saturation_threshold': 0.25,
-        'total_system_votes': 168000000,  # ✅ FIXED
-        'min_tvl_threshold': 100000,
+        'total_system_votes': 168204322,  
+        'min_tvl_threshold': 50000,
         'max_partner_pools': 2
     }
     total_system_votes = config['total_system_votes']
